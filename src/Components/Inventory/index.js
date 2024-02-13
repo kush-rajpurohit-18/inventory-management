@@ -48,30 +48,27 @@ export function InventoryManagementView({ rows, setRows }) {
   useEffect(() => {
     if (toggleState) setIsAdmin(false);
     else setIsAdmin(true);
-  }, [toggleState]);
+  }, [toggleState, setIsAdmin]);
 
   useEffect(() => {
+    const calculateStats = () => {
+      let totalPrice = 0;
+      const visibleRows = rows.filter((row) => !isVisible[row.name]);
+      totalPrice = visibleRows.reduce((acc, row) => {
+        const price = parseFloat(row.price.replace("$", ""));
+        return acc + price;
+      }, 0);
+      const noOfCategories = new Set(visibleRows.map((row) => row.category));
+      const zeroStocks = visibleRows.filter((row) => row.quantity === 0);
+      setIsVisibleRows(visibleRows);
+      return { totalPrice, noOfCategories, zeroStocks };
+    };
+
     const { totalPrice, noOfCategories, zeroStocks } = calculateStats();
     setTotalPrice(totalPrice);
     setNoOfCategories(noOfCategories.size);
     setZeroStocks(zeroStocks.length);
   }, [rows, isVisible]);
-
-  const calculateStats = () => {
-    let totalPrice = 0;
-    const visibleRows = rows.filter((row) => !isVisible[row.name]);
-
-    totalPrice = visibleRows.reduce((acc, row) => {
-      const price = parseFloat(row.price.replace("$", ""));
-      return acc + price;
-    }, 0);
-
-    const noOfCategories = new Set(visibleRows.map((row) => row.category));
-    const zeroStocks = visibleRows.filter((row) => row.quantity === 0);
-    setIsVisibleRows(visibleRows);
-
-    return { totalPrice, noOfCategories, zeroStocks };
-  };
 
   const cardData = [
     {
