@@ -4,7 +4,7 @@ import InventoryManagement from "../Components/Inventory";
 export default function Router() {
   return (
     <Routes>
-      <Route exact path="/inventory-management-app" element={<InventoryManagement />} />
+      <Route exact path="/" element={<InventoryManagement />} />
     </Routes>
   );
 }
