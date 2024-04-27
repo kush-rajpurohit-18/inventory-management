@@ -1,0 +1,62 @@
+.table-view-cards {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.table-view-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+}
+.table-view-with-stats-cards {
+  margin: 1rem;
+}
+.table-view-edit-product {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 0.5rem;
+}
+.table-view-icon-action-button:hover {
+  background-color: #303d2b;
+  border-radius: 0.5rem;
+}
+
+.table-view-edit-product-with-cross {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.css-1yjjitx-MuiSwitch-track {
+  background-color: aliceblue !important;
+}
+
+.css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked {
+  color: #87c750 !important;
+}
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+  background-color: #363835 !important;
+}
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+  color: white !important;
+}
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root {
+  color: white !important;
+}
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+  color: darkgray !important;
+}
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+  color: #87c750 !important;
+}
+
+@media (max-width: 768px) {
+  .table-view-cards {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .table-view-with-stats-cards {
+    overflow-x: hidden;
+  }
+}
